@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 9167028433069985553}
   - component: {fileID: 8944562326201732365}
   - component: {fileID: 6769109077539916351}
+  - component: {fileID: 3479087401249857669}
+  - component: {fileID: 2151413296599035138}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -204,7 +206,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 5, y: 4}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -225,8 +227,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9366e39b6123cff4f9b363184a3e52c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
+  jumpingPower: 10
   rb: {fileID: 9167028433069985553}
   groundCheck: {fileID: 797982275890418057}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &3479087401249857669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234956491826567735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80507ba0ed991e9419d9cbd8683767d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staringHealth: 3
+--- !u!114 &2151413296599035138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234956491826567735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d0ad3ec245e9142835556aa79a221a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  attackCooldown: 0.5
+  boxCollider: {fileID: 8944562326201732365}
+  attackRange: 2.5
+  mobLayer:
+    serializedVersion: 2
+    m_Bits: 64

@@ -11,8 +11,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Mob
+  - Player
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1436043371
+    locked: 0
+  - name: Mob
+    uniqueID: 3278540537
+    locked: 0
+  - name: Player
+    uniqueID: 1555453211
     locked: 0

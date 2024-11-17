@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 4f;
-    private float jumpingPower = 8f;
     private bool isFacingRight = true;
 
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpingPower;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -61,5 +61,10 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    public bool CanAttack()
+    {
+        return horizontal == 0 && IsGrounded();
     }
 }
