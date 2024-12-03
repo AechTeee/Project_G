@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5400265ad120767448e5ec7a2ba3da95
+guid: 95f6ce80406acbe4e942e5216236404c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: playbutton
+  - name: optionsbutton
     originalName: 
     pivot: {x: 2.122449, y: -3.6923075}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 98
       height: 39
-    spriteID: ef25f7ee2022ff74baab4579d64ab3e5
+    spriteID: e0cde60d3ab5f084cb14e4825e35488e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,13 +144,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1346792424
-    name: playbutton
+    guid: 775442676
+    name: optionsbutton
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: playbutton
+    - name: optionsbutton
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -158,7 +158,7 @@ ScriptedImporter:
         y: 144
         width: 98
         height: 39
-      spriteId: ef25f7ee2022ff74baab4579d64ab3e5
+      spriteId: e0cde60d3ab5f084cb14e4825e35488e
     linkedCells: []
     parentIndex: -1
   platformSettings:

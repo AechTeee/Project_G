@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5400265ad120767448e5ec7a2ba3da95
+guid: 94009a841d597d14f9a31ebafe3995c4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: playbutton
+  - name: xbutton
     originalName: 
-    pivot: {x: 2.122449, y: -3.6923075}
+    pivot: {x: 0.40909052, y: -8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 98
-      height: 39
-    spriteID: ef25f7ee2022ff74baab4579d64ab3e5
+      width: 22
+      height: 22
+    spriteID: 95d649f9c31d320469fba9ffa9ec7cde
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,21 +144,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1346792424
-    name: playbutton
+    guid: -1490393530
+    name: xbutton
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: playbutton
+    - name: xbutton
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 92
-        y: 144
-        width: 98
-        height: 39
-      spriteId: ef25f7ee2022ff74baab4579d64ab3e5
+        x: 291
+        y: 176
+        width: 22
+        height: 22
+      spriteId: 95d649f9c31d320469fba9ffa9ec7cde
     linkedCells: []
     parentIndex: -1
   platformSettings:
