@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,6 +9,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask mobLayer;
+
+    [Header("Ranged Attack")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject[] arrows;
 
     private Animator animator;
     private PlayerMovement playerMovement;
@@ -25,14 +27,22 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.CanAttack())
-            Attack();
+        if (cooldownTimer > attackCooldown && playerMovement.CanAttack())
+        {
+            if (Input.GetMouseButton(0))
+                MeleeAttack();
+            else if (Input.GetMouseButton(1))
+            {
+                animator.SetTrigger("rangedAttack");
+                cooldownTimer = 0;
+            }
+        }
         cooldownTimer += Time.deltaTime;
     }
 
-    private void Attack()
+    private void MeleeAttack()
     {
-        animator.SetTrigger("attack");
+        animator.SetTrigger("meleeAttack");
         cooldownTimer = 0;
     }
 
@@ -47,6 +57,22 @@ public class PlayerAttack : MonoBehaviour
         }
 
         return hit.collider != null;
+    }
+
+    private void RangedAttack()
+    {
+        arrows[MultiArrow()].transform.position = firePoint.position;
+        arrows[MultiArrow()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+    }
+
+    private int MultiArrow()
+    {
+        for(int i = 0; i < arrows.Length; i++)
+        {
+            if (!arrows[i].activeInHierarchy)
+                return i;
+        }
+        return 0;
     }
 
     private void causeDamage()

@@ -20,6 +20,7 @@ public class EnemyPatrol : MonoBehaviour
     [Header("Idle Behaviour")]
     [SerializeField] private float idleDuration;
     private float idleTimer;
+    private float cooldownTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +64,7 @@ public class EnemyPatrol : MonoBehaviour
             {
                 animator.SetBool("run", true);
                 transform.Translate(Vector2.left * speed * Time.deltaTime);
-            }
+            }          
         }
     }
 
