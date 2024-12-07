@@ -4,15 +4,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 10f;
     private bool isFacingRight = true;
-
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     private Animator animator;
+
+    [Header("Move Stat")]
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpingPower;
 
     // Start is called before the first frame update
     void Start()

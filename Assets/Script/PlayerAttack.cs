@@ -4,11 +4,15 @@ public class PlayerAttack : MonoBehaviour
 {
     private float cooldownTimer = Mathf.Infinity;
 
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private LayerMask mobLayer;
+
+    [Header("Attack Stat")]
     [SerializeField] private float damage;
     [SerializeField] private float attackCooldown;
-    [SerializeField] private BoxCollider2D boxCollider;
+
+    [Header("Melee Attack")]
     [SerializeField] private float attackRange;
-    [SerializeField] private LayerMask mobLayer;
 
     [Header("Ranged Attack")]
     [SerializeField] private Transform firePoint;

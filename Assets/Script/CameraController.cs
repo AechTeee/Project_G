@@ -3,19 +3,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
-    public float smooth = 0.125f;
+    [Range(0,1)]public float smooth;
     public Vector3 offset;
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 velocity = Vector3.zero;
+
+    [Header("Axis Limitation")]
+    public Vector2 xLitmit;
+    public Vector2 yLitmit;
+
+    private void Awake()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 desiredPosition = transform.position + offset;
-        Vector3 smoothPosition = Vector3.Lerp(target.position, desiredPosition, smooth);
-        transform.position = smoothPosition;
+        Vector3 targetPosition = target.position + offset;
+        targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, xLitmit.x, xLitmit.y), Mathf.Clamp(targetPosition.y, yLitmit.x, yLitmit.y),-10);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smooth);
     }
 }
