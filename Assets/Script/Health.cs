@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
 
     [SerializeField] private float staringHealth;
+    [SerializeField] private GameController _gameController;
 
     private Animator animator;
     // Start is called before the first frame update
@@ -15,12 +16,6 @@ public class Health : MonoBehaviour
     {
         currentHealth = staringHealth;
         animator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TakeDamge(float damge)
@@ -44,6 +39,13 @@ public class Health : MonoBehaviour
                     GetComponent<AnemyController>().enabled = false;
             }
             dead = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            //Mat mau voi animation
         }
     }
 }
