@@ -7,16 +7,18 @@ public class AnemyController : MonoBehaviour
 {
     private float cooldownTimer = Mathf.Infinity;
 
-    [SerializeField] private float damage;
-    [SerializeField] private float viewRange;
-    [SerializeField] private float attackRange;
-    [SerializeField] private Transform ViewCheck;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask playerLayer;
 
+    [Header("Enemy Stat")]
+    [SerializeField] public float speed;
+    [SerializeField] private float viewRange;
+
     [Header("Attack Parameters")]
-    [SerializeField] private float speed;
+    [SerializeField] private float damage;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
 
     private Animator animator;
@@ -34,34 +36,54 @@ public class AnemyController : MonoBehaviour
     void Update()
     {
         cooldownTimer += Time.deltaTime;
-
-        if(PlayerInRange())
+        if (PlayerInSight())
         {
-            if(cooldownTimer > attackCooldown)
+            if (player.position.x > transform.position.x && enemyPatrol.isFacingLeft)
+            {
+                enemyPatrol.Flip();
+            }
+            //else
+            //{
+            //    transform.Translate(Vector2.left * speed * 2 * Time.deltaTime);
+            //}
+        }
+        if (PlayerInRange())
+        {
+            if (cooldownTimer > attackCooldown)
             {
                 cooldownTimer = 0;
                 animator.SetTrigger("attack");
 
             }
         }
-
         if (enemyPatrol != null)
         {
-            enemyPatrol.enabled = !PlayerInRange();
+            if(!PlayerInRange() && cooldownTimer > attackCooldown)
+                enemyPatrol.enabled = true;
+            else
+                enemyPatrol.enabled = false;
         }
+    }
+
+    private bool PlayerInSight()
+    {
+        Vector3 viewSize = new Vector3(boxCollider.bounds.size.x * viewRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z);
+        RaycastHit2D canSee = Physics2D.BoxCast(boxCollider.bounds.center - transform.right * transform.localScale.x, viewSize, 0, Vector2.left, 0, playerLayer);
+        if(canSee.collider != null)
+            return true;
+        return false;
     }
 
     private bool PlayerInRange()
     {
-        Vector3 viewSize = new Vector3(boxCollider.bounds.size.x * attackRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z);
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center - transform.right * attackRange * transform.localScale.x * 0.5f, viewSize, 0, Vector2.left, 0, playerLayer);
+        Collider2D attackRangeSize = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         
-        if(hit.collider != null)
+        if(attackRangeSize != null)
         {
-            playerHealth = hit.transform.GetComponent<Health>();
+            playerHealth = attackRangeSize.transform.GetComponent<Health>();
         }
         
-        return hit.collider != null;
+        return attackRangeSize != null;
     }
 
     private void causeDamage()
@@ -74,8 +96,10 @@ public class AnemyController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(boxCollider.bounds.center - transform.right  * transform.localScale.x, new Vector3(boxCollider.bounds.size.x * viewRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center - transform.right * attackRange * transform.localScale.x * 0.5f,
-            new Vector3(boxCollider.bounds.size.x * attackRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
