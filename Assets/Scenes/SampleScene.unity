@@ -14920,10 +14920,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2554476332213785831}
-    - target: {fileID: 8557012553034611073, guid: 1c82922b4e4500c42a58a3c7f651e063, type: 3}
-      propertyPath: attackRange
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14940,28 +14936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507ba0ed991e9419d9cbd8683767d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6740951937658993983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3472959940729715712, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-  m_PrefabInstance: {fileID: 7715502684962965184}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d0ad3ec245e9142835556aa79a221a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6740951937658993984 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3736736646092388291, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-  m_PrefabInstance: {fileID: 7715502684962965184}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9366e39b6123cff4f9b363184a3e52c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7715502684962965184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14970,30 +14944,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: startingHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: iFramesDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: numberOfFlashes
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: components.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: components.Array.data[0]
-      value: 
-      objectReference: {fileID: 6740951937658993984}
-    - target: {fileID: 387086437422936452, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
-      propertyPath: components.Array.data[1]
-      value: 
-      objectReference: {fileID: 6740951937658993983}
     - target: {fileID: 2210504767674408631, guid: f06ff5df00506e94798a5341a6edca1e, type: 3}
       propertyPath: m_Name
       value: Player
