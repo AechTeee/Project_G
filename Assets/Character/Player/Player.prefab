@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2210504767674408631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.35, y: -1.88, z: 0}
+  m_LocalPosition: {x: -9.35, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,7 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507ba0ed991e9419d9cbd8683767d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staringHealth: 3
+  startingHealth: 3
+  iFramesDuration: 1
+  numberOfFlashes: 3
+  components:
+  - {fileID: 3736736646092388291}
+  - {fileID: 3472959940729715712}
 --- !u!114 &3472959940729715712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,13 +234,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d0ad3ec245e9142835556aa79a221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  attackCooldown: 0.5
   boxCollider: {fileID: 3276979545722367577}
-  attackRange: 2.5
   mobLayer:
     serializedVersion: 2
     m_Bits: 64
+  damage: 1
+  attackCooldown: 0.5
+  attackRange: 2.5
   firePoint: {fileID: 9017302251863965719}
   arrows:
   - {fileID: 0}

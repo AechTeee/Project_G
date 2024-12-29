@@ -169,16 +169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172e6e23fd3b6ec4baa8bcbf0865956c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  viewRange: 2
-  attackRange: 1.5
-  ViewCheck: {fileID: 3645216439349968903}
   boxCollider: {fileID: 1480830701164632370}
   player: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
   speed: 2
+  viewRange: 5
+  damage: 1
+  attackPoint: {fileID: 3645216439349968903}
+  attackRange: 1
   attackCooldown: 2.5
 --- !u!114 &8557012553034611073
 MonoBehaviour:
@@ -192,8 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a80e01428a387f4884ce7ddb039abee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  attackRange: 1.5
+  isFacingLeft: 1
   aroundCheck: {fileID: 1228899434759377926}
   groundLayer:
     serializedVersion: 2
@@ -215,7 +214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507ba0ed991e9419d9cbd8683767d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staringHealth: 3
+  startingHealth: 3
+  iFramesDuration: 1
+  numberOfFlashes: 3
+  components:
+  - {fileID: 8557012553034611073}
+  - {fileID: 1041461380071706038}
 --- !u!1 &3076436353719514240
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,9 +230,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3645216439349968903}
   m_Layer: 0
-  m_Name: ViewCheck
+  m_Name: AttackPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -241,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 3076436353719514240}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 2, z: 0}
+  m_LocalPosition: {x: -0.7, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
