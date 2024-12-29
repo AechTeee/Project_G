@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,7 @@ public class Health : MonoBehaviour
     private bool dead;
     public float currentHealth { get; private set; }
 
-    [SerializeField] private float staringHealth;
-    [SerializeField] private GameController _gameController;
+    [SerializeField] private float startingHealth;
     private Animator animator;
 
     [Header("iFrames")]
@@ -20,19 +20,14 @@ public class Health : MonoBehaviour
     [SerializeField] private Behaviour[] components;
     private void Awake()
     {
-        currentHealth = staringHealth;
+        currentHealth = startingHealth;
         animator = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     public void TakeDamge(float damge)
     {
-        currentHealth = Mathf.Clamp(currentHealth - damge, 0, staringHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damge, 0, startingHealth);
 
         if (currentHealth > 0)
         {
@@ -50,17 +45,29 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+    public void AddHealth(float _value)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+    }
+
+    public void Respawn()
+    {
+        dead = false;
+        AddHealth(startingHealth);
+        animator.ResetTrigger("die");
+        animator.Play("Idle");
+        StartCoroutine(Invunerability());
+
+        foreach (var component in components)
+            component.enabled = true;
+    }
+
     private void Deactivate()
     {
         gameObject.SetActive(false);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Obstacle"))
-        {
-            //Mat mau voi animation
-        }
-    }
+
     private IEnumerator Invunerability()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);

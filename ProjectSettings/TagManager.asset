@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mob
-  - Obstacle
+  - Enemy
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Mob
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1555453211
+    locked: 0
+  - name: Foreground
+    uniqueID: 3169763677
     locked: 0
