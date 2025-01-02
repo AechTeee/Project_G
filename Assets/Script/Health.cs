@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -42,6 +43,8 @@ public class Health : MonoBehaviour
                 foreach (var component in components)
                     component.enabled = false;
                 dead = true;
+                FindAnyObjectByType<UIManager>().GameOver();
+                Debug.Log("Nhân vật đã chết! Triggering Game Over...");
             }
         }
     }
