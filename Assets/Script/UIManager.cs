@@ -15,8 +15,7 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverScreen.SetActive(true);
-
+            gameOverScreen.SetActive(true);
     }
     
     public void Restart()

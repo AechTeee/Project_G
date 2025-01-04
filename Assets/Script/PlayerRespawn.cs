@@ -13,16 +13,16 @@ public class PlayerRespawn : MonoBehaviour
         playerHeath = GetComponent<Health>();
         uiManager = FindObjectOfType<UIManager>();
     }
-    public void Respawn()
+    public void CheckRespawn()
     {   
         if (currentCheckpoint == null)
         {
             uiManager.GameOver();
-
             return;
         }
-        transform.position = currentCheckpoint.position;
         playerHeath.Respawn();
+        transform.position = currentCheckpoint.position;
+        Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
 
     }
 

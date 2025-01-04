@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -10,6 +11,11 @@ public class CameraController : MonoBehaviour
     [Header("Axis Limitation")]
     public Vector2 xLitmit;
     public Vector2 yLitmit;
+
+    internal void MoveToNewRoom(Transform parent)
+    {
+        throw new NotImplementedException();
+    }
 
     private void Awake()
     {
