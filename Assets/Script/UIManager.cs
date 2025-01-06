@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private bool Player;
 
     public void Awake()
     {
         gameOverScreen.SetActive(false);
     }
   
-
     public void GameOver()
     {
-            gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
     }
     
     public void Restart()

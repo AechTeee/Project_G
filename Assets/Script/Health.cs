@@ -19,8 +19,15 @@ public class Health : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
 
+    [SerializeField] private UIManager uIManager;
+    [SerializeField] private bool Player;
+
     private void Awake()
     {
+        if (uIManager == null)
+        {
+            uIManager = FindObjectOfType<UIManager>();
+        }
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
@@ -40,11 +47,13 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 animator.SetTrigger("die");
+                if (Player)
+                {
+                    FindObjectOfType<UIManager>().GameOver();
+                }
                 foreach (var component in components)
                     component.enabled = false;
                 dead = true;
-                FindAnyObjectByType<UIManager>().GameOver();
-                Debug.Log("Nhân vật đã chết! Triggering Game Over...");
             }
         }
     }
